@@ -117,6 +117,10 @@ sudo touch /etc/${OE_CONFIG}.conf
 echo -e "* Creating server config file"
 sudo su root -c "printf '[options] \n; This is the password that allows database operations:\n' >> /etc/${OE_CONFIG}.conf"
 sudo su root -c "printf 'admin_passwd = ${OE_SUPERADMIN}\n' >> /etc/${OE_CONFIG}.conf"
+sudo su root -c "printf 'db_host = ${DB_HOST}\n' >> /etc/${OE_CONFIG}.conf"
+sudo su root -c "printf 'db_port = ${DB_PORT}\n' >> /etc/${OE_CONFIG}.conf"
+sudo su root -c "printf 'db_user = ${DB_USER}\n' >> /etc/${OE_CONFIG}.conf"
+sudo su root -c "printf 'db_password = ${DB_PASSWORD}\n' >> /etc/${OE_CONFIG}.conf"
 sudo su root -c "printf 'xmlrpc_port = ${OE_PORT}\n' >> /etc/${OE_CONFIG}.conf"
 sudo su root -c "printf 'logfile = /var/log/${OE_USER}/${OE_CONFIG}.log\n' >> /etc/${OE_CONFIG}.conf"
 if [ $IS_ENTERPRISE = "True" ]; then
